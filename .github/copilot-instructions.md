@@ -20,7 +20,10 @@ http.Request → Router.ServeHTTP() → RESTHandler.ServeHTTP() → {UserIndexHa
 ```
 
 ### File Organization
-- `main.go`: All code in single file (educational simplicity)
+- `main.go`: Application entry point and dependency wiring
+- `router/`: Custom routing logic and HTTP request handling
+- `resthandler/`: REST HTTP method delegation (GET, POST, etc.)
+- `handler/`: Individual request handlers by resource/action
 - `go.mod`: Module definition only
 - No external dependencies or frameworks
 
@@ -47,6 +50,28 @@ http.Request → Router.ServeHTTP() → RESTHandler.ServeHTTP() → {UserIndexHa
 - No external dependencies beyond standard library
 - Educational clarity over production optimization
 - Explicit error handling over implicit
+
+### Git Commit Rules:
+Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification:
+
+**Format**: `<type>[optional scope]: <description>`
+
+**Common types**:
+- `feat`: New feature addition
+- `fix`: Bug fix
+- `refactor`: Code restructuring without feature/bug changes
+- `docs`: Documentation only changes
+- `style`: Code formatting, whitespace changes
+- `test`: Adding or modifying tests
+- `chore`: Build tools, dependencies, or maintenance
+
+**Examples**:
+```
+feat: add product CRUD endpoints
+fix: handle empty request body in user creation
+refactor: separate handlers into dedicated packages
+docs: update API usage examples in README
+```
 
 ## Implementation Templates
 
